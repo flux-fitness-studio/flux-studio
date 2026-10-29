@@ -1,9 +1,11 @@
 # Flux Studio Website
 
-Website for Flux Studio, a fitness studio.
+Website for Flux Studio, a fitness studio in Puerto Escondido, Mexico.
 
-**Goal:** when someone searches Google or asks an AI for a fitness studio, Flux Studio shows up.
-- **SEO** (search engine optimization): ranking in Google results
+**Goal:** when someone in or visiting Puerto Escondido, Mexico searches
+Google or asks an AI for a fitness studio, Flux Studio shows up first,
+in Spanish and English.
+- **Local SEO:** ranking in Google and Google Maps for Puerto Escondido searches
 - **GEO** (generative engine optimization): showing up in AI answers like ChatGPT
 
 Every tool in the stack was picked to serve that goal.
