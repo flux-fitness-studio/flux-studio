@@ -23,6 +23,7 @@ Kanami sets up the project scaffolding. Before Monday, the team should:
 
 Not in the kickoff deck:
 - English + Spanish pages, with hreflang tags so each language is indexed separately
+  - **URL structure (decided):** both languages prefixed (`/en/…`, `/es/…`); all pages live in `src/app/[locale]/`. `/` redirects based on browser language.
 - JSON-LD structured data (e.g. a LocalBusiness / ExerciseGym schema)
 - On-demand ISR: a Sanity webhook triggers revalidation so the owner's edits go live instantly
 - The weekly report becomes ranked blog-topic suggestions for the SEO content strategy
