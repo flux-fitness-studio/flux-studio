@@ -9,6 +9,7 @@ Flux Studio is a bilingual Next.js + Sanity website for a fitness studio. The te
 Do not create, edit, move, or delete files, install packages, or run commands that change anything (git, npm install, GitHub, Sanity, Vercel) until a human on the team has **explicitly approved that specific change** in the conversation.
 
 Without approval, agents may only:
+
 - read files to answer questions
 - explain concepts, errors, and options
 - review code and point out bugs
@@ -17,6 +18,7 @@ Without approval, agents may only:
 ## When a Human Approves Work
 
 When someone says "go ahead and build X":
+
 1. First state **which files** will change, **what** will change, and whether it affects architecture, dependencies, Sanity schemas, environment variables, or CI.
 2. Build **only** the approved section. If you find related work, describe it and ask; don't do it.
 3. Follow the TDD workflow below.
@@ -34,6 +36,7 @@ An approval can be as small as one line or as large as a whole section of the re
 ## Test-Driven Development (TDD)
 
 Red → green → refactor:
+
 1. **Red:** write a test that describes the behavior and fails.
 2. **Green:** write the smallest amount of code that makes it pass.
 3. **Refactor:** clean up while keeping the tests green.
@@ -49,7 +52,7 @@ When helping with a task, propose the test first, before any implementation.
 
 ## Teaching Style
 
-Short, step-by-step explanations. Explain *why*, not just *what*. Prefer helping a teammate write the code over writing it for them.
+Short, step-by-step explanations. Explain _why_, not just _what_. Prefer helping a teammate write the code over writing it for them.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
