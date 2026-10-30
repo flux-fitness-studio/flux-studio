@@ -1,5 +1,37 @@
 # Contributing to Flux Studio
 
+## Git workflow
+
+We use two long-lived branches:
+- **`main`** = the live site. It only gets code that has already been
+  reviewed and tested together on `dev`.
+- **`dev`** = our default branch, where everyone's finished work comes
+  together.
+
+This keeps `main` clean and ready for production at all times. Nobody
+pushes to `main` or `dev` directly; everything goes through a pull
+request (GitHub blocks direct pushes).
+
+### Step by step
+1. Start from the latest `dev`:
+   ```bash
+   git switch dev
+   git pull
+   ```
+2. Create your feature branch from `dev`:
+   ```bash
+   git switch -c your-branch-name
+   ```
+3. Commit as you go (failing test first, see TDD below), then push:
+   ```bash
+   git push -u origin your-branch-name
+   ```
+4. Open a pull request into **`dev`**. It's the default, but check that
+   the "base" dropdown says `dev`, not `main`.
+5. Get **1 approving review**, then merge.
+6. Once a week, Kanami merges `dev` into `main`. That's when your work
+   goes live.
+
 ## TDD (required)
 
 We write the test **before** the code. The test describes what the code
