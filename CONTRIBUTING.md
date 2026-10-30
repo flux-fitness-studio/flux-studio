@@ -32,6 +32,12 @@ request (GitHub blocks direct pushes).
 6. Once a week, Kanami merges `dev` into `main`. That's when your work
    goes live.
 
+### Formatting (Prettier)
+- When VS Code suggests the recommended extensions (Prettier and
+  ESLint), click **Install**. Files then format automatically on save.
+- Not using VS Code, or a check failed? Run `npm run format`, commit,
+  and push.
+
 ## TDD (required)
 
 We write the test **before** the code. The test describes what the code
