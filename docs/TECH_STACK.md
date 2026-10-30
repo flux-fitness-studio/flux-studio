@@ -25,12 +25,12 @@ Summary of the team kickoff deck (`Flux Studio Tech Kickoff.pdf`).
 - **In our repo (TypeScript):** schemas (one per content type, e.g. class, coach, FAQ), the Sanity Studio setup (it's a React app), GROQ queries, and the Next.js pages.
 - **In Sanity's cloud:** the content itself (text, photos, class info).
 
-| CMS | Hosted by | Verdict |
-|---|---|---|
-| **Sanity** | Sanity's cloud | **Our pick**: nothing to host, best Next.js support |
-| Payload | Us | All TypeScript, but we run the server and storage |
-| Strapi | Us or paid cloud | A separate server to keep running |
-| Contentful | Contentful | Paid platform, less hands-on to learn |
+| CMS        | Hosted by        | Verdict                                             |
+| ---------- | ---------------- | --------------------------------------------------- |
+| **Sanity** | Sanity's cloud   | **Our pick**: nothing to host, best Next.js support |
+| Payload    | Us               | All TypeScript, but we run the server and storage   |
+| Strapi     | Us or paid cloud | A separate server to keep running                   |
+| Contentful | Contentful       | Paid platform, less hands-on to learn               |
 
 ## Supabase + OpenAI: the AI layer (after the MVP)
 
