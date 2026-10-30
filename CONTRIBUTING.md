@@ -20,10 +20,13 @@ request (GitHub blocks direct pushes).
    git switch dev
    git pull
    ```
-2. Create your feature branch from `dev`:
+2. Create your feature branch from `dev`, named `type/short-description`:
    ```bash
-   git switch -c your-branch-name
+   git switch -c feat/class-list
    ```
+   Types: `feat` (new feature), `fix` (bug fix), `docs` (docs only),
+   `test` (tests only), `refactor` (cleanup, same behavior), `chore`
+   (setup, tools, dependencies).
 3. Commit as you go (failing test first, see TDD below), then push:
    ```bash
    git push -u origin your-branch-name
@@ -63,6 +66,11 @@ should do, so you always know when you're done.
 - 🔴 Next test: Spanish should return `"18:00"` → fails
 - 🟢 Add Spanish support → passes
 - 🔵 Tidy up → still passes → done
+
+### Where tests go
+
+Next to the file they test, with `.test` before the extension:
+`ClassCard.tsx` → `ClassCard.test.tsx` in the same folder.
 
 ### Tips
 
