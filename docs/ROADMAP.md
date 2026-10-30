@@ -29,7 +29,7 @@ Not in the kickoff deck:
 - JSON-LD structured data (e.g. a LocalBusiness / ExerciseGym schema)
 - On-demand ISR: a Sanity webhook triggers revalidation so the owner's edits go live instantly
 - The weekly report becomes ranked blog-topic suggestions for the SEO content strategy
-- GitHub Actions CI (lint, type-check, test, build)
+- GitHub Actions CI (lint, format check, type-check, tests; Vercel handles builds)
 - Roadmap tracked in Linear
 
 ## Performance (less JavaScript = faster pages = better SEO)
