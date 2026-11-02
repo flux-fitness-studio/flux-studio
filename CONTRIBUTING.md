@@ -72,6 +72,19 @@ should do, so you always know when you're done.
 Next to the file they test, with `.test` before the extension:
 `ClassCard.tsx` → `ClassCard.test.tsx` in the same folder.
 
+Every component already has a test file with an `it.todo` list of
+behaviors to test. That's your starting point: turn one `it.todo` into
+a real test, watch it fail, then write the code.
+
+### Running tests
+
+```bash
+npm test
+```
+
+It reruns the tests every time you save. Press `q` to quit. CI runs
+them on every PR.
+
 ### Tips
 
 - **Keep tests small:** one behavior per test.
@@ -85,17 +98,50 @@ the order in the commit list.
 
 ## Styling & components
 
-### Brand
+### Where things live
 
-- Use the brand colors and fonts from our theme, never raw hex codes.
-  ✅ `bg-brand-sand` ❌ `bg-[#C6BDB3]`
+| Folder                     | What goes there                                   |
+| -------------------------- | ------------------------------------------------- |
+| `src/app/[locale]/`        | Pages (`/en/...` and `/es/...`)                   |
+| `src/components/sections/` | One file per landing page section, in page order  |
+| `src/components/layout/`   | Header, Footer, LanguageToggle (on every page)    |
+| `src/components/ui/`       | Reusable pieces: Section, Heading, Button         |
+| `src/dictionaries/`        | Fixed text in English and Spanish                 |
+| `src/lib/`                 | Helpers (`i18n.ts`) and site settings (`site.ts`) |
+
+Each folder has a `README.md` with its rules. Read it before adding a file.
+
+### Brand (Tailwind)
+
+We style with **Tailwind classes only**: no separate CSS files, no
+inline `style={{ }}`. The brand theme lives in `src/app/globals.css`
+(`@theme`) and gives us these classes:
+
+| Class                                                   | What                      |
+| ------------------------------------------------------- | ------------------------- |
+| `bg-brand-white`, `text-brand-white`                    | White                     |
+| `bg-brand-black`, `text-brand-black`                    | Black                     |
+| `bg-brand-sand`, `text-brand-sand`, `border-brand-sand` | Light warm gray `#C6BDB3` |
+| `font-heading`                                          | Titles                    |
+| `font-body`                                             | Body text (the default)   |
+
+- Only these three colors. The brand sheet's accent colors are left out on purpose.
+- Never raw hex codes: ✅ `bg-brand-sand` ❌ `bg-[#C6BDB3]`
 - Brand reference: `docs/BRAND.md`
+
+### Text
+
+Never type text straight into a component. Fixed labels go in
+`src/dictionaries/en.json` **and** `es.json`; studio content will come
+from Sanity.
 
 ### Reusable components
 
 Before building any UI, check `src/components/ui/` first.
 
-- **Button, Heading, Navbar, etc. already exist?** Use them.
+- **Every section** is wrapped in `Section`, every title is a `Heading`,
+  every button is a `Button`.
+- **Already exists?** Use it.
 - **Need a variation?** Add a prop to the existing component (with a test).
   Don't copy it.
 - **Need something new?** Ask in your PR or Linear task first, so we
