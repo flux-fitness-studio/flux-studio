@@ -1,4 +1,5 @@
 # CI: automatically checks every pull request before it can be merged.
+# Steps: lint, format check, type-check, tests.
 # It only checks the code; it never changes or fixes anything.
 # Vercel builds the site and makes a preview for each PR, so there's no build step here.
 
@@ -51,3 +52,7 @@ jobs:
       # TypeScript: generates Next.js route types, then checks types across every file.
       - name: Type-check
         run: npm run typecheck
+
+      # Vitest: runs every test once (in CI it doesn't watch for changes).
+      - name: Test
+        run: npm test
