@@ -1,0 +1,53 @@
+# CI: automatically checks every pull request before it can be merged.
+# It only checks the code; it never changes or fixes anything.
+# Vercel builds the site and makes a preview for each PR, so there's no build step here.
+
+# The name shown in the repo's Actions tab and on PRs.
+name: CI
+
+# When to run: whenever a PR into dev or main is opened or gets new commits.
+# Pushing to a branch that has no PR doesn't trigger it.
+on:
+  pull_request:
+    branches: [dev, main]
+
+# The workflow can only read the repo, never write to it ("least privilege").
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    # Shown on the PR as the status check, and required in the protect-dev and
+    # protect-main rulesets. Don't rename it, or the rulesets will wait for a
+    # check that no longer exists.
+    name: Lint, format, and type-check
+    # A fresh Linux machine from GitHub, thrown away after the job finishes.
+    runs-on: ubuntu-latest
+    # Steps run top to bottom. If one fails, the job stops and the PR gets a ❌.
+    steps:
+      # The machine starts empty: download this PR's code onto it.
+      - name: Check out the code
+        uses: actions/checkout@v7
+
+      # Install Node 22 (same as our laptops). Caching npm downloads makes later runs faster.
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      # Clean install of the exact versions in package-lock.json.
+      - name: Install dependencies
+        run: npm ci
+
+      # ESLint: code that runs but is probably a mistake (unused variables, hook rules, etc.).
+      - name: Lint
+        run: npm run lint
+
+      # Prettier: fails if any file isn't formatted. Fix locally with `npm run format`.
+      - name: Check formatting
+        run: npm run format:check
+
+      # TypeScript: generates Next.js route types, then checks types across every file.
+      - name: Type-check
+        run: npm run typecheck
