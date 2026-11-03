@@ -10,7 +10,7 @@ One file per landing page section, in page order:
 6. `Faq`: questions that open when tapped
 7. `CallToAction`: closing band with the main button
 
-The page that stacks them is `src/app/[locale]/page.tsx`.
+The page that will stack them is `src/app/[locale]/page.tsx`.
 
 ## Rules
 

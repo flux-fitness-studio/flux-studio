@@ -1,51 +1,34 @@
-// The root layout for every page under /en and /es: <html lang>, fonts, Header, Footer.
+// The root layout: the frame around every page under /en and /es.
 // [locale] in the folder name is a URL variable: /en → locale "en", /es → locale "es".
+//
+// To build:
+// - Read `locale` from params and set it on <html lang="...">.
+// - Load the brand font and globals.css.
+// - Put the Header above the page and the Footer below it.
+// - Any other language in the URL (e.g. /fr) should show "page not found".
+// - Set the page title and description for search engines, in the right language.
+// - Get the list of languages from src/lib/i18n.ts instead of typing it below.
+//
+// Docs: node_modules/next/dist/docs/01-app/01-getting-started/03-layouts-and-pages.md
+//
+// Below is the smallest layout Next.js accepts. Replace it as you build.
 
-import type { Metadata } from "next";
-import { Cormorant_Garamond } from "next/font/google";
-import { notFound } from "next/navigation";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
-import { getDictionary, hasLocale, locales } from "@/lib/i18n";
-import "../globals.css";
-
-// Sets the --font-cormorant variable that globals.css uses for font-body and font-heading.
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-});
-
-// Pre-render /en and /es at build time (static site generation).
+// Tells Next.js which values [locale] can have, so it can build /en and /es.
+// Required because [locale] is the top folder of every page.
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return [{ locale: "en" }, { locale: "es" }];
 }
 
-export async function generateMetadata({
-  params,
-}: LayoutProps<"/[locale]">): Promise<Metadata> {
-  const { locale } = await params;
-  if (!hasLocale(locale)) return {};
-  const { meta } = getDictionary(locale);
-  return { title: meta.title, description: meta.description };
-}
+// Next.js requires the root layout to have <html> and <body>.
 
-export default async function LocaleLayout({
+export default function LocaleLayout({
   children,
-  params,
-}: LayoutProps<"/[locale]">) {
-  const { locale } = await params;
-  // Any other language in the URL (e.g. /fr) shows the 404 page.
-  if (!hasLocale(locale)) notFound();
-  const dict = getDictionary(locale);
-
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang={locale} className={`${cormorant.variable} antialiased`}>
-      <body className="flex min-h-screen flex-col">
-        <Header locale={locale} dict={dict.header} />
-        <main className="flex-1">{children}</main>
-        <Footer locale={locale} dict={dict.footer} />
-      </body>
+    <html>
+      <body>{children}</body>
     </html>
   );
 }
