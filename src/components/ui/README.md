@@ -8,6 +8,9 @@ Small, reusable building blocks. **Check here before building any UI.**
 | `Heading` | Every title (`level={1}` once per page, `2` for sections, `3` for cards)          |
 | `Button`  | Every button (`primary` = filled main action, `secondary` = outlined)             |
 
+Each file has a comment describing what to build. Start from its test file's
+`it.todo` list (TDD). These are a good first step: the sections are built from them.
+
 ## Rules
 
 - Need a variation? Add a prop to the existing component (with a test). Don't copy it.

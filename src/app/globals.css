@@ -1,33 +1,12 @@
-@import "tailwindcss";
-
 /*
-  Brand theme. Every variable below becomes a Tailwind class:
-    --color-brand-sand  →  bg-brand-sand, text-brand-sand, border-brand-sand
-    --font-heading      →  font-heading
-  Use these classes instead of raw hex codes (see CONTRIBUTING → Styling).
+  Site-wide styles. To build:
+  - Load Tailwind.
+  - Add the brand theme so Tailwind gives us brand classes like bg-brand-sand:
+    black #000000, white #ffffff, sand #C6BDB3. Only these three colors
+    (decided 2026-11-02; see docs/BRAND.md).
+  - Heading and body fonts. The brand heading font (Momcake or Roca One) isn't
+    licensed yet, so use a placeholder font for now.
+  - Default page background (white) and text color (black).
 
-  Palette (decided 2026-11-02): black, white, and sand only. The brand
-  sheet's accent colors are left out on purpose; color comes from photos.
+  Docs: node_modules/next/dist/docs/01-app/01-getting-started/11-css.md
 */
-@theme {
-  --color-brand-black: #000000;
-  --color-brand-white: #ffffff;
-  --color-brand-sand: #c6bdb3;
-}
-
-/*
-  Fonts are loaded in src/app/[locale]/layout.tsx with next/font, which
-  sets --font-cormorant. "inline" lets the theme point at that variable.
-  Headings use Cormorant Garamond as a placeholder until the brand heading
-  font (Momcake or Roca One) is licensed; then only --font-heading changes.
-*/
-@theme inline {
-  --font-heading: var(--font-cormorant);
-  --font-body: var(--font-cormorant);
-}
-
-body {
-  background: var(--color-brand-white);
-  color: var(--color-brand-black);
-  font-family: var(--font-body);
-}

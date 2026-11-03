@@ -1,22 +1,9 @@
-// Languages the site supports, and a helper to load each one's fixed text.
-// Studio content (classes, coaches, FAQ) will come from Sanity instead.
-
-import en from "@/dictionaries/en.json";
-import es from "@/dictionaries/es.json";
-
-export const locales = ["en", "es"] as const;
-export type Locale = (typeof locales)[number];
-
-// The shape of a dictionary, taken from en.json. es.json must match it.
-export type Dictionary = typeof en;
-
-const dictionaries: Record<Locale, Dictionary> = { en, es };
-
-// True if the URL's [locale] is one we support (e.g. "en"), false otherwise (e.g. "fr").
-export function hasLocale(value: string): value is Locale {
-  return (locales as readonly string[]).includes(value);
-}
-
-export function getDictionary(locale: Locale): Dictionary {
-  return dictionaries[locale];
-}
+// i18n ("internationalization"): the helper that gives each page the right
+// dictionary for its language.
+// To build:
+// - The list of languages the site supports: en and es.
+// - A check that the URL's language is one we support (en/es yes, fr no).
+// - A function that returns the dictionary (src/dictionaries) for a language.
+// - Bonus: make TypeScript fail if es.json is missing a key that en.json has.
+// Docs: node_modules/next/dist/docs/01-app/02-guides/internationalization.md
+// Tests to write first: i18n.test.ts

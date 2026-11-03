@@ -1,30 +1,14 @@
-// The landing page. It only stacks the sections, in order; each section lives in
-// src/components/sections/. To change the page order, move a line here.
+// The landing page (/en and /es). It stacks the sections from
+// src/components/sections/ in this order:
+//   1. Hero  2. Video  3. About  4. Classes  5. Coaches  6. FAQ  7. Call to action
+// Keep this file thin: each section's UI lives in its own component.
+// Each section gets its text from the dictionary for the current language.
+//
+// Docs: node_modules/next/dist/docs/01-app/01-getting-started/03-layouts-and-pages.md
+//
+// Below is the smallest page Next.js accepts (it renders nothing).
+// Replace it as you build.
 
-import { notFound } from "next/navigation";
-import { About } from "@/components/sections/About";
-import { CallToAction } from "@/components/sections/CallToAction";
-import { Classes } from "@/components/sections/Classes";
-import { Coaches } from "@/components/sections/Coaches";
-import { Faq } from "@/components/sections/Faq";
-import { Hero } from "@/components/sections/Hero";
-import { Video } from "@/components/sections/Video";
-import { getDictionary, hasLocale } from "@/lib/i18n";
-
-export default async function HomePage({ params }: PageProps<"/[locale]">) {
-  const { locale } = await params;
-  if (!hasLocale(locale)) notFound();
-  const dict = getDictionary(locale);
-
-  return (
-    <>
-      <Hero dict={dict.hero} />
-      <Video dict={dict.video} />
-      <About dict={dict.about} />
-      <Classes dict={dict.classes} />
-      <Coaches dict={dict.coaches} />
-      <Faq dict={dict.faq} />
-      <CallToAction dict={dict.callToAction} />
-    </>
-  );
+export default function HomePage() {
+  return null;
 }
