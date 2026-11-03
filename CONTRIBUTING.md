@@ -111,11 +111,27 @@ the order in the commit list.
 
 Each folder has a `README.md` with its rules. Read it before adding a file.
 
+Every file starts as **comments describing what to build**. A few files
+(pages, `layout.tsx`, `proxy.ts`) also have the smallest code Next.js
+needs to run; replace it as you build.
+
+### File names
+
+- **Components** start with a capital, matching the component name:
+  `Button.tsx` exports `Button`.
+- **Everything else** is lowercase: Next.js files (`page.tsx`,
+  `layout.tsx`), helpers (`i18n.ts`), and folders.
+- Only files named `page.tsx` inside `src/app/` become URLs; the folders
+  around them decide the URL. Nothing in `src/components/` becomes a URL.
+- The Next.js Learn course uses lowercase for everything. That's the
+  course's style, not a Next.js rule.
+
 ### Brand (Tailwind)
 
 We style with **Tailwind classes only**: no separate CSS files, no
-inline `style={{ }}`. The brand theme lives in `src/app/globals.css`
-(`@theme`) and gives us these classes:
+inline `style={{ }}`. The brand theme will live in `src/app/globals.css`
+(`@theme`). It isn't built yet (see the comment in that file). Once it
+is, it gives us these classes:
 
 | Class                                                   | What                      |
 | ------------------------------------------------------- | ------------------------- |
