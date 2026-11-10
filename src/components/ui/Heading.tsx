@@ -4,3 +4,11 @@
 // - 2: section titles (the default)
 // - 3: card titles
 // Tests to write first: Heading.test.tsx
+
+type HeadingProps = {
+  children: React.ReactNode;
+};
+
+export function Heading({ children }: HeadingProps) {
+  return <h2>{children}</h2>;
+}
