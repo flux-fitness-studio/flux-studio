@@ -12,5 +12,7 @@ export default defineConfig({
     environment: "jsdom",
     // Don't fail CI before the first test file exists.
     passWithNoTests: true,
+    // Run vitest.setup.ts before each test file (it clears the page after every test).
+    setupFiles: ["./vitest.setup.ts"],
   },
 });
