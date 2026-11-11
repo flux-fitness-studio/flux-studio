@@ -16,5 +16,8 @@ describe("Heading", () => {
     render(<Heading level={3}>Yoga</Heading>);
     screen.getByRole("heading", { level: 3 });
   });
-  it("renders its text");
+  it("renders its text", () => {
+    render(<Heading>Classes</Heading>);
+    screen.getByRole("heading", { name: "Classes" });
+  });
 });
