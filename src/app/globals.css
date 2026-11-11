@@ -10,3 +10,11 @@
 
   Docs: node_modules/next/dist/docs/01-app/01-getting-started/11-css.md
 */
+
+@import "tailwindcss";
+
+@theme {
+  --color-brand-black: #000000;
+  --color-brand-white: #ffffff;
+  --color-brand-sand: #c6bdb3;
+}
