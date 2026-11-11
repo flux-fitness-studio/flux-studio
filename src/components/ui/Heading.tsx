@@ -4,3 +4,13 @@
 // - 2: section titles (the default)
 // - 3: card titles
 // Tests to write first: Heading.test.tsx
+
+type HeadingProps = {
+  children: React.ReactNode;
+  level?: 1 | 2 | 3;
+};
+
+export function Heading({ children, level = 2 }: HeadingProps) {
+  const Tag = `h${level}` as const;
+  return <Tag>{children}</Tag>;
+}
