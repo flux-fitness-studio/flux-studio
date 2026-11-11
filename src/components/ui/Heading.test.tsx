@@ -9,6 +9,12 @@ describe("Heading", () => {
     render(<Heading>Classes</Heading>);
     screen.getByRole("heading", { level: 2 });
   });
-  it.todo("renders h1 or h3 when given level 1 or 3");
-  it.todo("renders its text");
+  it("renders h1 or h3 when given level 1 or 3", () => {
+    render(<Heading level={1}>Flux Fitness</Heading>);
+    screen.getByRole("heading", { level: 1 });
+
+    render(<Heading level={3}>Yoga</Heading>);
+    screen.getByRole("heading", { level: 3 });
+  });
+  it("renders its text");
 });

@@ -7,8 +7,10 @@
 
 type HeadingProps = {
   children: React.ReactNode;
+  level?: 1 | 2 | 3;
 };
 
-export function Heading({ children }: HeadingProps) {
-  return <h2>{children}</h2>;
+export function Heading({ children, level = 2 }: HeadingProps) {
+  const Tag = `h${level}` as const;
+  return <Tag>{children}</Tag>;
 }
