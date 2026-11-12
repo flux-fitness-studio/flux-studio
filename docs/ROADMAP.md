@@ -1,14 +1,14 @@
 # Roadmap
 
-## Phase 0: Learn (week of 2026-10-29)
+## Phase 0: Learn
 
-Kanami sets up the project scaffolding. Before Monday, the team should:
+Before picking up a first ticket, each teammate should:
 
 - [ ] Do the first chapters of the Next.js Learn course
-- [ ] Create free accounts on Vercel, Sanity, and Supabase
-- [ ] Read the Tech Stack Primer doc
+- [ ] Read docs/TECH_STACK.md and docs/NEXTJS_FOR_REACT_DEVS.md
+- [ ] Accept the Sanity invite (needed once we start on Sanity content)
 
-## Phase 1: MVP landing page (starts Monday)
+## Phase 1: MVP landing page
 
 - Next.js + Sanity, deployed on Vercel
 - First Sanity schemas (e.g. class, coach, FAQ)

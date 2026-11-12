@@ -3,6 +3,6 @@
 import { describe, it } from "vitest";
 
 describe("LanguageToggle", () => {
-  it.todo("on /en, links to /es and shows Español");
-  it.todo("on /es, links to /en and shows English");
+  it.todo("shows EN and ES, linking to /en and /es");
+  it.todo("marks the current language with aria-current");
 });
