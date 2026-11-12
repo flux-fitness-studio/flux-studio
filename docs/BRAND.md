@@ -2,6 +2,13 @@
 
 Sent by the owner on 2026-10-29.
 
+## Mock-up
+
+The landing page design: [`docs/design/flux-landing-mockup.html`](design/flux-landing-mockup.html).
+Open it in a browser (double-click it in Finder, or drag it into Chrome). On
+GitHub, click **Download raw file**, then open the download. The values on this
+page come from it.
+
 ## Colors
 
 | Role         | Hex       |
