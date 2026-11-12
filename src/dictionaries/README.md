@@ -20,7 +20,8 @@ passes the text to its components. Components never contain text themselves.
 Group keys by the component that uses them:
 
 - `meta`: page title and description for search engines
-- `header`: the language toggle label ("Español" / "English")
+- `header`: no keys needed. The toggle shows "EN / ES", which is the same in
+  both languages, so `LanguageToggle` can hold it.
 - `hero`: tagline, main button ("Book a class" / "Reserva tu clase")
 - `video`, `about`, `classes`, `coaches`, `faq`: section titles (`about` also needs
   "Address" and "Opening hours")
