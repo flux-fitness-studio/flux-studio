@@ -1,12 +1,11 @@
 /*
-  Site-wide styles. To build:
-  - Load Tailwind.
-  - Add the brand theme so Tailwind gives us brand classes like bg-brand-sand:
-    black #000000, white #ffffff, sand #C6BDB3. Only these three colors
-    (decided 2026-11-02; see docs/BRAND.md).
-  - Heading and body fonts. The brand heading font (Momcake or Roca One) isn't
-    licensed yet, so use a placeholder font for now.
-  - Default page background (white) and text color (black).
+  Site-wide styles. This file holds the brand theme (see docs/BRAND.md):
+  - Brand colors: black #000000, white #ffffff, sand #C6BDB3. Only these
+    three (decided 2026-11-02).
+  - Fonts: DM Serif Display for headings, Cormorant Garamond for body text
+    (decided 2026-11-11; loaded in src/app/[locale]/layout.tsx).
+  - Heading sizes for phone and desktop.
+  - Page defaults: white background, black text, body font.
 
   Docs: node_modules/next/dist/docs/01-app/01-getting-started/11-css.md
 */

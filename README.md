@@ -21,7 +21,8 @@ Every tool in the stack was picked to serve that goal.
    npm install
    ```
 2. Open the folder in VS Code. When it asks to install the
-   **recommended extensions** (Prettier and ESLint), click **Install**.
+   **recommended extensions** (Prettier, ESLint, and Tailwind CSS
+   IntelliSense), click **Install**.
    Your files now format automatically every time you save.
 3. Start the site and open http://localhost:3000:
    ```bash

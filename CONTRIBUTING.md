@@ -39,8 +39,8 @@ request (GitHub blocks direct pushes).
 
 ### Formatting (Prettier)
 
-- When VS Code suggests the recommended extensions (Prettier and
-  ESLint), click **Install**. Files then format automatically on save.
+- When VS Code suggests the recommended extensions (Prettier, ESLint,
+  and Tailwind CSS IntelliSense), click **Install**. Files then format automatically on save.
 - Not using VS Code, or a check failed? Run `npm run format`, commit,
   and push.
 
@@ -129,17 +129,21 @@ needs to run; replace it as you build.
 ### Brand (Tailwind)
 
 We style with **Tailwind classes only**: no separate CSS files, no
-inline `style={{ }}`. The brand theme will live in `src/app/globals.css`
-(`@theme`). It isn't built yet (see the comment in that file). Once it
-is, it gives us these classes:
+inline `style={{ }}`. The brand theme lives in `src/app/globals.css`
+(`@theme`) and gives us these classes:
 
-| Class                                                   | What                      |
-| ------------------------------------------------------- | ------------------------- |
-| `bg-brand-white`, `text-brand-white`                    | White                     |
-| `bg-brand-black`, `text-brand-black`                    | Black                     |
-| `bg-brand-sand`, `text-brand-sand`, `border-brand-sand` | Light warm gray `#C6BDB3` |
-| `font-heading`                                          | Titles                    |
-| `font-body`                                             | Body text (the default)   |
+| Class                                                   | What                                       |
+| ------------------------------------------------------- | ------------------------------------------ |
+| `bg-brand-white`, `text-brand-white`                    | White                                      |
+| `bg-brand-black`, `text-brand-black`                    | Black                                      |
+| `bg-brand-sand`, `text-brand-sand`, `border-brand-sand` | Light warm gray `#C6BDB3`                  |
+| `font-heading`                                          | Titles (DM Serif Display)                  |
+| `font-body`                                             | Body text and buttons (Cormorant Garamond) |
+| `text-heading-1`, `-2`, `-3`                            | Heading sizes on phones                    |
+| `md:text-heading-1-lg`, `-2-lg`, `-3-lg`                | Heading sizes from 768px wide              |
+
+`font-body` is already the page default. The `Heading` component adds the
+heading font and sizes for you.
 
 - Only these three colors. The brand sheet's accent colors are left out on purpose.
 - Never raw hex codes: ✅ `bg-brand-sand` ❌ `bg-[#C6BDB3]`
