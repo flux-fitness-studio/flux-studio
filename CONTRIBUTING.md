@@ -85,6 +85,51 @@ npm test
 It reruns the tests every time you save. Press `q` to quit. CI runs
 them on every PR.
 
+### Make sure your test runs
+
+A test that never runs can't fail, so it can't catch anything. Vitest
+**skips** these without an error:
+
+- `it.todo("renders an h2 by default", ...)`: anything with `.todo` is
+  skipped, even if it has code inside. Delete `.todo` when you start the
+  test.
+- `it("renders an h2 by default")`: a test with no function after the
+  name.
+
+Skipped tests show up as "todo" in the `npm test` output, not as passed
+or failed.
+
+That's why the loop starts with 🔴: **always watch your new test fail
+before you write the code.** If it passes straight away, or never shows
+as failed, check for the two mistakes above.
+
+### Finding things on the page (`getByRole`)
+
+Tests find elements the way someone using a screen reader would: by
+their **role** (what kind of thing it is) and their **name** (the text
+it reads out).
+
+```tsx
+import { describe, it } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { Heading } from "./Heading";
+
+describe("Heading", () => {
+  it("renders its text", () => {
+    render(<Heading>Classes</Heading>);
+    screen.getByRole("heading", { name: "Classes" });
+  });
+});
+```
+
+- `render` draws the component on a fake browser page.
+- `screen.getByRole(...)` looks for it on that page. If it isn't there,
+  the test **fails**, so you don't need an `expect`.
+- Common roles: `heading` (add `{ level: 2 }` for a specific level),
+  `button`, `link`, `img`.
+- Use `getByRole` in every test. If what you're testing has no role,
+  like plain paragraph text, use `screen.getByText("...")` instead.
+
 ### Tips
 
 - **Keep tests small:** one behavior per test.
