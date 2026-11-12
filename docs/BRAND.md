@@ -2,6 +2,13 @@
 
 Sent by the owner on 2026-10-29.
 
+## Mock-up
+
+The landing page design: [`docs/design/flux-landing-mockup.html`](design/flux-landing-mockup.html).
+Open it in a browser (double-click it in Finder, or drag it into Chrome). On
+GitHub, click **Download raw file**, then open the download. The values on this
+page come from it.
+
 ## Colors
 
 | Role         | Hex       |
@@ -99,6 +106,5 @@ sections, white on black ones. Nothing to add per component.
 
 ## Open questions
 
-- Is there a logo file (SVG preferred)?
 - The mock-up's hero title is bigger than our h1 (58px phone, 136px desktop).
   Give the hero its own size when it's built?
