@@ -106,6 +106,5 @@ sections, white on black ones. Nothing to add per component.
 
 ## Open questions
 
-- Is there a logo file (SVG preferred)?
 - The mock-up's hero title is bigger than our h1 (58px phone, 136px desktop).
   Give the hero its own size when it's built?
