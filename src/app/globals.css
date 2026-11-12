@@ -1,12 +1,78 @@
 /*
-  Site-wide styles. To build:
-  - Load Tailwind.
-  - Add the brand theme so Tailwind gives us brand classes like bg-brand-sand:
-    black #000000, white #ffffff, sand #C6BDB3. Only these three colors
-    (decided 2026-11-02; see docs/BRAND.md).
-  - Heading and body fonts. The brand heading font (Momcake or Roca One) isn't
-    licensed yet, so use a placeholder font for now.
-  - Default page background (white) and text color (black).
+  Site-wide styles. This file holds the brand theme (see docs/BRAND.md):
+  - Brand colors: black #000000, white #ffffff, sand #C6BDB3. Only these
+    three (decided 2026-11-02).
+  - Fonts: DM Serif Display for headings, Cormorant Garamond for body text
+    (decided 2026-11-11; loaded in src/app/[locale]/layout.tsx).
+  - Heading sizes and line spacing for phone and desktop.
+  - Section spacing, side padding, content width, and body text
+    (decided 2026-11-12).
+  - Page defaults: white background, black text, body font and size.
 
   Docs: node_modules/next/dist/docs/01-app/01-getting-started/11-css.md
 */
+
+@import "tailwindcss";
+
+@theme {
+  --color-brand-black: #000000;
+  --color-brand-white: #ffffff;
+  --color-brand-sand: #c6bdb3;
+}
+
+/* Brand fonts (loaded in src/app/[locale]/layout.tsx).
+   Gives us font-heading (DM Serif Display) and font-body (Cormorant Garamond).
+   "inline" because these point at font names layout.tsx creates. */
+@theme inline {
+  --font-heading: var(--font-dm-serif-display), serif;
+  --font-body: var(--font-cormorant-garamond), serif;
+}
+
+/* Heading sizes and line spacing (from the mock-up, approved 2026-11-11 and 2026-11-12).
+   Gives us classes like text-heading-1 (phone) and md:text-heading-1-lg (desktop).
+   Each size's --line-height token is applied by the same class.
+   1rem = 16px. */
+@theme {
+  --text-heading-1: 3rem; /* 48px */
+  --text-heading-1--line-height: 1.05;
+  --text-heading-1-lg: 4.5rem; /* 72px */
+  --text-heading-1-lg--line-height: 1.05;
+  --text-heading-2: 2.5rem; /* 40px */
+  --text-heading-2--line-height: 1.05;
+  --text-heading-2-lg: 4rem; /* 64px */
+  --text-heading-2-lg--line-height: 1.05;
+  --text-heading-3: 1.5rem; /* 24px */
+  --text-heading-3--line-height: 1.05;
+  --text-heading-3-lg: 2rem; /* 32px */
+  --text-heading-3-lg--line-height: 1.05;
+}
+
+/* Layout and body text (from the mock-up, approved 2026-11-12).
+   Gives us py-section, px-gutter, max-w-content, text-label and text-body (plus md: -lg versions) tracking-button and tracking-label. */
+@theme {
+  --spacing-section: 4.5rem; /* 72px */
+  --spacing-section-lg: 9rem; /* 144px */
+  --spacing-gutter: 1.25rem; /* 20px */
+  --spacing-gutter-lg: 2.5rem; /* 40px */
+  --container-content: 75rem; /* 1200px */
+  --text-body: 1.25rem; /* 20px */
+  --text-body--line-height: 1.45;
+  --text-body-lg: 1.375rem; /* 22px */
+  --text-body-lg--line-height: 1.45;
+  --tracking-button: 0.16em;
+  --text-label: 0.875rem; /* 14px */
+  --text-label-lg: 0.9375rem; /* 15px */
+  --tracking-label: 0.2em;
+}
+
+/* Page defaults: every page starts with a white background, black text,
+   and the body font. Components can still override these with their own classes. */
+@layer base {
+  body {
+    @apply bg-brand-white text-brand-black font-body text-body md:text-body-lg font-medium;
+  }
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+}

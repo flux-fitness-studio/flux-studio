@@ -39,8 +39,8 @@ request (GitHub blocks direct pushes).
 
 ### Formatting (Prettier)
 
-- When VS Code suggests the recommended extensions (Prettier and
-  ESLint), click **Install**. Files then format automatically on save.
+- When VS Code suggests the recommended extensions (Prettier, ESLint,
+  and Tailwind CSS IntelliSense), click **Install**. Files then format automatically on save.
 - Not using VS Code, or a check failed? Run `npm run format`, commit,
   and push.
 
@@ -84,6 +84,51 @@ npm test
 
 It reruns the tests every time you save. Press `q` to quit. CI runs
 them on every PR.
+
+### Make sure your test runs
+
+A test that never runs can't fail, so it can't catch anything. Vitest
+**skips** these without an error:
+
+- `it.todo("renders an h2 by default", ...)`: anything with `.todo` is
+  skipped, even if it has code inside. Delete `.todo` when you start the
+  test.
+- `it("renders an h2 by default")`: a test with no function after the
+  name.
+
+Skipped tests show up as "todo" in the `npm test` output, not as passed
+or failed.
+
+That's why the loop starts with 🔴: **always watch your new test fail
+before you write the code.** If it passes straight away, or never shows
+as failed, check for the two mistakes above.
+
+### Finding things on the page (`getByRole`)
+
+Tests find elements the way someone using a screen reader would: by
+their **role** (what kind of thing it is) and their **name** (the text
+it reads out).
+
+```tsx
+import { describe, it } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { Heading } from "./Heading";
+
+describe("Heading", () => {
+  it("renders its text", () => {
+    render(<Heading>Classes</Heading>);
+    screen.getByRole("heading", { name: "Classes" });
+  });
+});
+```
+
+- `render` draws the component on a fake browser page.
+- `screen.getByRole(...)` looks for it on that page. If it isn't there,
+  the test **fails**, so you don't need an `expect`.
+- Common roles: `heading` (add `{ level: 2 }` for a specific level),
+  `button`, `link`, `img`.
+- Use `getByRole` in every test. If what you're testing has no role,
+  like plain paragraph text, use `screen.getByText("...")` instead.
 
 ### Tips
 
@@ -129,17 +174,25 @@ needs to run; replace it as you build.
 ### Brand (Tailwind)
 
 We style with **Tailwind classes only**: no separate CSS files, no
-inline `style={{ }}`. The brand theme will live in `src/app/globals.css`
-(`@theme`). It isn't built yet (see the comment in that file). Once it
-is, it gives us these classes:
+inline `style={{ }}`. The brand theme lives in `src/app/globals.css`
+(`@theme`) and gives us these classes:
 
-| Class                                                   | What                      |
-| ------------------------------------------------------- | ------------------------- |
-| `bg-brand-white`, `text-brand-white`                    | White                     |
-| `bg-brand-black`, `text-brand-black`                    | Black                     |
-| `bg-brand-sand`, `text-brand-sand`, `border-brand-sand` | Light warm gray `#C6BDB3` |
-| `font-heading`                                          | Titles                    |
-| `font-body`                                             | Body text (the default)   |
+| Class                                                   | What                                       |
+| ------------------------------------------------------- | ------------------------------------------ |
+| `bg-brand-white`, `text-brand-white`                    | White                                      |
+| `bg-brand-black`, `text-brand-black`                    | Black                                      |
+| `bg-brand-sand`, `text-brand-sand`, `border-brand-sand` | Light warm gray `#C6BDB3`                  |
+| `font-heading`                                          | Titles (DM Serif Display)                  |
+| `font-body`                                             | Body text and buttons (Cormorant Garamond) |
+| `text-heading-1`, `-2`, `-3`                            | Heading sizes on phones                    |
+| `md:text-heading-1-lg`, `-2-lg`, `-3-lg`                | Heading sizes from 768px wide              |
+| `py-section`, `md:py-section-lg`                        | Space above and below a section            |
+| `px-gutter`, `md:px-gutter-lg`                          | Space between content and the screen edge  |
+| `max-w-content`                                         | Max content width (1200px)                 |
+
+`font-body` and the body text size are already the page default, so
+paragraphs don't need a class. The `Heading` component adds the heading
+font and sizes for you, and `Section` will add the spacing and width.
 
 - Only these three colors. The brand sheet's accent colors are left out on purpose.
 - Never raw hex codes: ✅ `bg-brand-sand` ❌ `bg-[#C6BDB3]`

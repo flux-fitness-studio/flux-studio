@@ -3,7 +3,6 @@
 //
 // To build:
 // - Read `locale` from params and set it on <html lang="...">.
-// - Load the brand font and globals.css.
 // - Put the Header above the page and the Footer below it.
 // - Any other language in the URL (e.g. /fr) should show "page not found".
 // - Set the page title and description for search engines, in the right language.
@@ -12,6 +11,23 @@
 // Docs: node_modules/next/dist/docs/01-app/01-getting-started/03-layouts-and-pages.md
 //
 // Below is the smallest layout Next.js accepts. Replace it as you build.
+
+import { Cormorant_Garamond, DM_Serif_Display } from "next/font/google";
+import "../globals.css";
+
+// Heading font. DM Serif Display only comes in one weight (400).
+const headingFont = DM_Serif_Display({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-dm-serif-display",
+});
+
+// Body font: medium (500) for text, bold (700) for buttons.
+const bodyFont = Cormorant_Garamond({
+  weight: ["500", "700"],
+  subsets: ["latin"],
+  variable: "--font-cormorant-garamond",
+});
 
 // Tells Next.js which values [locale] can have, so it can build /en and /es.
 // Required because [locale] is the top folder of every page.
@@ -27,7 +43,7 @@ export default function LocaleLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
+    <html className={`${headingFont.variable} ${bodyFont.variable}`}>
       <body>{children}</body>
     </html>
   );
