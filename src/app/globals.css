@@ -26,3 +26,23 @@
   --font-heading: var(--font-dm-serif-display), serif;
   --font-body: var(--font-cormorant-garamond), serif;
 }
+
+/* Heading sizes (from the mock-up, approved 2026-11-11).
+   Gives us classes like text-heading-1 (phone) and md:text-heading-1-lg (desktop).
+   1rem = 16px. */
+@theme {
+  --text-heading-1: 3rem; /* 48px */
+  --text-heading-1-lg: 4.5rem; /* 72px */
+  --text-heading-2: 2.5rem; /* 40px */
+  --text-heading-2-lg: 4rem; /* 64px */
+  --text-heading-3: 1.5rem; /* 24px */
+  --text-heading-3-lg: 2rem; /* 32px */
+}
+
+/* Page defaults: every page starts with a white background, black text,
+   and the body font. Components can still override these with their own classes. */
+@layer base {
+  body {
+    @apply bg-brand-white text-brand-black font-body;
+  }
+}
