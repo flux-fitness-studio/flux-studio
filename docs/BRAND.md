@@ -64,12 +64,17 @@ From the mock-up (decided 2026-11-12). The `Section` component uses these.
 
 ## Buttons
 
-From the mock-up (decided 2026-11-11):
+From the mock-up (decided 2026-11-11; details added 2026-11-12):
 
-- Pill shape, about 48px tall
-- **Primary:** black fill
-- **Secondary:** black outline
-- Cormorant Garamond bold, 15px, all caps, letter-spaced
+- Pill shape (`rounded-full`), at least 48px tall (`min-h-12`), 24px side
+  padding (`px-6`)
+- **Primary:** black fill, white text
+- **Secondary:** 2px black outline (`border-2`), black text; sand background on
+  hover
+- Cormorant Garamond bold, 15px, all caps, letter spacing 0.16em
+  (`tracking-button`)
+- Keyboard focus: 2px black outline with a small gap
+  (`focus-visible:outline-2 outline-offset-3`)
 
 ## Open questions
 

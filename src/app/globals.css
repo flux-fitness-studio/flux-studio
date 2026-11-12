@@ -48,7 +48,7 @@
 }
 
 /* Layout and body text (from the mock-up, approved 2026-11-12).
-   Gives us py-section, px-gutter, max-w-content, and text-body (plus md: -lg versions). */
+   Gives us py-section, px-gutter, max-w-content, and text-body (plus md: -lg versions) and tracking-button. */
 @theme {
   --spacing-section: 4.5rem; /* 72px */
   --spacing-section-lg: 9rem; /* 144px */
@@ -59,6 +59,7 @@
   --text-body--line-height: 1.45;
   --text-body-lg: 1.375rem; /* 22px */
   --text-body-lg--line-height: 1.45;
+  --tracking-button: 0.16em;
 }
 
 /* Page defaults: every page starts with a white background, black text,
