@@ -4,8 +4,10 @@
     three (decided 2026-11-02).
   - Fonts: DM Serif Display for headings, Cormorant Garamond for body text
     (decided 2026-11-11; loaded in src/app/[locale]/layout.tsx).
-  - Heading sizes for phone and desktop.
-  - Page defaults: white background, black text, body font.
+  - Heading sizes and line spacing for phone and desktop.
+  - Section spacing, side padding, content width, and body text
+    (decided 2026-11-12).
+  - Page defaults: white background, black text, body font and size.
 
   Docs: node_modules/next/dist/docs/01-app/01-getting-started/11-css.md
 */

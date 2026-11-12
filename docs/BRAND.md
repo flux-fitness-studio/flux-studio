@@ -42,7 +42,25 @@ Phone → desktop (desktop starts at 768px wide, Tailwind's `md:`).
 | h2    | 40px  | 64px    | `text-heading-2 md:text-heading-2-lg` |
 | h3    | 24px  | 32px    | `text-heading-3 md:text-heading-3-lg` |
 
+Line spacing is 1.05 for all levels (decided 2026-11-12); the same classes set it.
+
 Use the `Heading` component instead of adding these classes by hand.
+
+## Body text
+
+From the mock-up (decided 2026-11-12): 20px on phones, 22px on desktop, line
+spacing 1.45. It's already the default on every page (`text-body md:text-body-lg`
+on `<body>`), so paragraphs don't need a size class.
+
+## Layout
+
+From the mock-up (decided 2026-11-12). The `Section` component uses these.
+
+| What                          | Phone  | Desktop | Classes                       |
+| ----------------------------- | ------ | ------- | ----------------------------- |
+| Section spacing (top, bottom) | 72px   | 144px   | `py-section md:py-section-lg` |
+| Side padding                  | 20px   | 40px    | `px-gutter md:px-gutter-lg`   |
+| Content width (max)           | 1200px | 1200px  | `max-w-content mx-auto`       |
 
 ## Buttons
 
@@ -56,3 +74,7 @@ From the mock-up (decided 2026-11-11):
 ## Open questions
 
 - Is there a logo file (SVG preferred)?
+- The mock-up's paragraphs use Cormorant Garamond weight 500 (medium), but only
+  400 and 700 are loaded. Add 500, or keep 400?
+- The mock-up's hero title is bigger than our h1 (58px phone, 136px desktop).
+  Give the hero its own size when it's built?

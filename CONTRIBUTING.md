@@ -186,9 +186,13 @@ inline `style={{ }}`. The brand theme lives in `src/app/globals.css`
 | `font-body`                                             | Body text and buttons (Cormorant Garamond) |
 | `text-heading-1`, `-2`, `-3`                            | Heading sizes on phones                    |
 | `md:text-heading-1-lg`, `-2-lg`, `-3-lg`                | Heading sizes from 768px wide              |
+| `py-section`, `md:py-section-lg`                        | Space above and below a section            |
+| `px-gutter`, `md:px-gutter-lg`                          | Space between content and the screen edge  |
+| `max-w-content`                                         | Max content width (1200px)                 |
 
-`font-body` is already the page default. The `Heading` component adds the
-heading font and sizes for you.
+`font-body` and the body text size are already the page default, so
+paragraphs don't need a class. The `Heading` component adds the heading
+font and sizes for you, and `Section` will add the spacing and width.
 
 - Only these three colors. The brand sheet's accent colors are left out on purpose.
 - Never raw hex codes: ✅ `bg-brand-sand` ❌ `bg-[#C6BDB3]`
