@@ -48,7 +48,7 @@
 }
 
 /* Layout and body text (from the mock-up, approved 2026-11-12).
-   Gives us py-section, px-gutter, max-w-content, and text-body (plus md: -lg versions) and tracking-button. */
+   Gives us py-section, px-gutter, max-w-content, text-label and text-body (plus md: -lg versions) tracking-button and tracking-label. */
 @theme {
   --spacing-section: 4.5rem; /* 72px */
   --spacing-section-lg: 9rem; /* 144px */
@@ -60,12 +60,19 @@
   --text-body-lg: 1.375rem; /* 22px */
   --text-body-lg--line-height: 1.45;
   --tracking-button: 0.16em;
+  --text-label: 0.875rem; /* 14px */
+  --text-label-lg: 0.9375rem; /* 15px */
+  --tracking-label: 0.2em;
 }
 
 /* Page defaults: every page starts with a white background, black text,
    and the body font. Components can still override these with their own classes. */
 @layer base {
   body {
-    @apply bg-brand-white text-brand-black font-body text-body md:text-body-lg;
+    @apply bg-brand-white text-brand-black font-body text-body md:text-body-lg font-medium;
+  }
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
   }
 }

@@ -49,8 +49,17 @@ Use the `Heading` component instead of adding these classes by hand.
 ## Body text
 
 From the mock-up (decided 2026-11-12): 20px on phones, 22px on desktop, line
-spacing 1.45. It's already the default on every page (`text-body md:text-body-lg`
-on `<body>`), so paragraphs don't need a size class.
+spacing 1.45, weight 500 (medium). It's already the default on every page
+(`text-body md:text-body-lg font-medium` on `<body>`), so paragraphs don't need
+a class. Cormorant Garamond loads only 500 and 700 (bold).
+
+## Labels
+
+The small all-caps text above headings and on footer and contact columns
+("THE STUDIO", "HOURS"). From the mock-up (decided 2026-11-12): bold, all caps,
+14px on phones, 15px on desktop, letter spacing 0.2em.
+
+`text-label md:text-label-lg tracking-label font-bold uppercase`
 
 ## Layout
 
@@ -73,13 +82,23 @@ From the mock-up (decided 2026-11-11; details added 2026-11-12):
   hover
 - Cormorant Garamond bold, 15px, all caps, letter spacing 0.16em
   (`tracking-button`)
-- Keyboard focus: 2px black outline with a small gap
-  (`focus-visible:outline-2 outline-offset-3`)
+- Keyboard focus: already handled site-wide (see below)
+
+## Keyboard focus
+
+Every link and button gets a 2px outline in the text color, 3px away, when it's
+reached with the keyboard (`:focus-visible` in `globals.css`). Black on light
+sections, white on black ones. Nothing to add per component.
+
+## Other styles (built-in Tailwind classes, no tokens)
+
+- Corners: pills `rounded-full`, small `rounded-lg` (8px), cards `rounded-2xl`
+  (16px)
+- Dark overlay on photos: `bg-brand-black/45` (`/45` = 45% opacity)
+- Divider lines: 1px sand, `border-brand-sand`
 
 ## Open questions
 
 - Is there a logo file (SVG preferred)?
-- The mock-up's paragraphs use Cormorant Garamond weight 500 (medium), but only
-  400 and 700 are loaded. Add 500, or keep 400?
 - The mock-up's hero title is bigger than our h1 (58px phone, 136px desktop).
   Give the hero its own size when it's built?

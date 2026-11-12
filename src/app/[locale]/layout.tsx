@@ -22,9 +22,9 @@ const headingFont = DM_Serif_Display({
   variable: "--font-dm-serif-display",
 });
 
-// Body font: regular (400) for text, bold (700) for buttons.
+// Body font: medium (500) for text, bold (700) for buttons.
 const bodyFont = Cormorant_Garamond({
-  weight: ["400", "700"],
+  weight: ["500", "700"],
   subsets: ["latin"],
   variable: "--font-cormorant-garamond",
 });
