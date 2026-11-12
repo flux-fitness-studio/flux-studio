@@ -18,3 +18,11 @@
   --color-brand-white: #ffffff;
   --color-brand-sand: #c6bdb3;
 }
+
+/* Brand fonts (loaded in src/app/[locale]/layout.tsx).
+   Gives us font-heading (DM Serif Display) and font-body (Cormorant Garamond).
+   "inline" because these point at font names layout.tsx creates. */
+@theme inline {
+  --font-heading: var(--font-dm-serif-display), serif;
+  --font-body: var(--font-cormorant-garamond), serif;
+}
