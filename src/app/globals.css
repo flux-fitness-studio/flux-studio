@@ -45,10 +45,24 @@
   --text-heading-3-lg--line-height: 1.05;
 }
 
+/* Layout and body text (from the mock-up, approved 2026-11-12).
+   Gives us py-section, px-gutter, max-w-content, and text-body (plus md: -lg versions). */
+@theme {
+  --spacing-section: 4.5rem; /* 72px */
+  --spacing-section-lg: 9rem; /* 144px */
+  --spacing-gutter: 1.25rem; /* 20px */
+  --spacing-gutter-lg: 2.5rem; /* 40px */
+  --container-content: 75rem; /* 1200px */
+  --text-body: 1.25rem; /* 20px */
+  --text-body--line-height: 1.45;
+  --text-body-lg: 1.375rem; /* 22px */
+  --text-body-lg--line-height: 1.45;
+}
+
 /* Page defaults: every page starts with a white background, black text,
    and the body font. Components can still override these with their own classes. */
 @layer base {
   body {
-    @apply bg-brand-white text-brand-black font-body;
+    @apply bg-brand-white text-brand-black font-body text-body md:text-body-lg;
   }
 }
