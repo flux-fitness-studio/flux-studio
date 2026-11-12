@@ -10,7 +10,14 @@ type HeadingProps = {
   level?: 1 | 2 | 3;
 };
 
+// Full class names on purpose: Tailwind only finds classes written out in full.
+const sizes = {
+  1: "font-heading text-heading-1 md:text-heading-1-lg",
+  2: "font-heading text-heading-2 md:text-heading-2-lg",
+  3: "font-heading text-heading-3 md:text-heading-3-lg",
+};
+
 export function Heading({ children, level = 2 }: HeadingProps) {
   const Tag = `h${level}` as const;
-  return <Tag>{children}</Tag>;
+  return <Tag className={sizes[level]}>{children}</Tag>;
 }
