@@ -18,10 +18,10 @@ permissions:
 
 jobs:
   checks:
-    # Shown on the PR as the status check, and required in the protect-dev and
-    # protect-main rulesets. Don't rename it, or the rulesets will wait for a
-    # check that no longer exists.
-    name: Lint, format, and type-check
+    # Shown on the PR as the status check. The dev-required-checks and
+    # protect-main rulesets require this exact name, so if you rename it,
+    # update both rulesets too, or every PR will wait for a check that never runs.
+    name: Lint, format, type-check, and test
     # A fresh Linux machine from GitHub, thrown away after the job finishes.
     runs-on: ubuntu-latest
     # Steps run top to bottom. If one fails, the job stops and the PR gets a ❌.
