@@ -10,7 +10,7 @@ Both files start empty (`{}`). JSON can't hold comments, so the plan lives here.
 Each file uses the **same names** (keys) with different text:
 
 - `en.json`: `"hero": { "cta": "Book a class" }`
-- `es.json`: `"hero": { "cta": "Reserva tu clase" }`
+- `es.json`: `"hero": { "cta": "Reserva" }`
 
 A page loads the file for its language (with the helper in `src/lib/i18n.ts`) and
 passes the text to its components. Components never contain text themselves.
@@ -22,7 +22,7 @@ Group keys by the component that uses them:
 - `meta`: page title and description for search engines
 - `header`: no keys needed. The toggle shows "EN / ES", which is the same in
   both languages, so `LanguageToggle` can hold it.
-- `hero`: tagline, main button ("Book a class" / "Reserva tu clase")
+- `hero`: tagline, main button ("Book a class" / "Reserva")
 - `video`, `about`, `classes`, `coaches`, `faq`: section titles (`about` also needs
   "Address" and "Opening hours")
 - `callToAction`: closing line, main button

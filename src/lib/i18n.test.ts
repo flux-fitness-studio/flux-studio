@@ -1,9 +1,24 @@
-// TDD to-do list for i18n. Turn each it.todo into a real test, watch it fail,
-// then write the code (see CONTRIBUTING → TDD).
-import { describe, it } from "vitest";
+// Tests for the i18n helper (src/lib/i18n.ts): which languages the site
+// supports, and loading the right dictionary for each one.
+import { describe, expect, it } from "vitest";
+import { getDictionary, hasLocale } from "./i18n";
 
 describe("i18n", () => {
-  it.todo("hasLocale returns true for en and es");
-  it.todo("hasLocale returns false for other languages (e.g. fr)");
-  it.todo("getDictionary returns the Spanish text for es");
+  it("hasLocale returns true for en and es", () => {
+    expect(hasLocale("en")).toBe(true);
+    expect(hasLocale("es")).toBe(true);
+  });
+
+  it("hasLocale returns false for other languages (e.g. fr)", () => {
+    expect(hasLocale("fr")).toBe(false);
+  });
+
+  it("getDictionary returns the Spanish text for es", async () => {
+    const dict = await getDictionary("es");
+    expect(dict?.hero.cta).toBe("Reserva");
+  });
+
+  it("getDictionary returns null for other languages (e.g. fr)", async () => {
+    expect(await getDictionary("fr")).toBeNull();
+  });
 });

@@ -1,1 +1,60 @@
-{}
+{
+  "meta": {
+    "title": "Flux Studio | Clases de fitness en Puerto Escondido",
+    "description": "Flux Fitness Studio en Puerto Escondido, México. Aprovechamos el poder del ritmo y la energía para crear entrenamientos que transforman cuerpo y mente."
+  },
+  "hero": {
+    "motto": "Échale mami, dale papi",
+    "tagline": "Flux Fitness Studio en Puerto Escondido, México.",
+    "cta": "Reserva"
+  },
+  "video": {
+    "title": "We Are Flux"
+  },
+  "about": {
+    "label": "Quiénes somos",
+    "title": "El movimiento es más que ejercicio.",
+    "visitLabel": "Visítanos",
+    "visitTitle": "Encuentra el estudio",
+    "address": "Dirección",
+    "hours": "Horarios",
+    "whatsapp": "Chatea con nosotros",
+    "directions": "Cómo llegar"
+  },
+  "classes": {
+    "label": "Clases",
+    "title": "Nuestras disciplinas",
+    "intro": "Ofrecemos clases en español e inglés."
+  },
+  "coaches": {
+    "label": "Instructores",
+    "title": "Conoce al equipo"
+  },
+  "faq": {
+    "label": "Preguntas frecuentes",
+    "title": "Lo que debes saber"
+  },
+  "callToAction": {
+    "title": "¡Regístrate ahora!",
+    "cta": "Reserva"
+  },
+  "footer": {
+    "contact": "Contacto",
+    "hours": "Horarios",
+    "book": "Reserva",
+    "bookClass": "Reserva",
+    "packages": "Paquetes",
+    "chat": "Chatea con nosotros",
+    "policies": "Políticas",
+    "terms": "Términos y condiciones",
+    "privacy": "Políticas de privacidad",
+    "follow": "Síguenos en",
+    "instagram": "Flux Studio en Instagram"
+  },
+  "policies": {
+    "title": "Términos y condiciones"
+  },
+  "privacy": {
+    "title": "Políticas de privacidad"
+  }
+}
