@@ -204,6 +204,24 @@ Never type text straight into a component. Fixed labels go in
 `src/dictionaries/en.json` **and** `es.json`; studio content will come
 from Sanity.
 
+- **Components get their text as props.** The page loads the dictionary
+  with `getDictionary` (`src/lib/i18n.ts`) and passes each component its
+  part, like `<Hero text={dict.hero} />`. The component shows `text.cta`
+  and never knows which language it is.
+- **Lint enforces it.** Text typed into a component in `src/components/`
+  (`<button>Book a class</button>`, or `{"Book a class"}`) fails
+  `npm run lint` and CI. Symbols that are the same in both languages
+  (`EN / ES`, `©`, `↗`) are allowed in `eslint.config.mjs`.
+- **New label?** Add the same key to both dictionary files. If `es.json`
+  is missing a key that `en.json` has, `npm run typecheck` fails.
+- **In tests, pass fake text** so a hard-coded label can't sneak through:
+
+  ```tsx
+  // en = import en from "@/dictionaries/en.json"
+  render(<Hero text={{ ...en.hero, cta: "TEST BUTTON" }} />);
+  expect(screen.getByRole("link", { name: "TEST BUTTON" })).toBeInTheDocument();
+  ```
+
 ### Reusable components
 
 Before building any UI, check `src/components/ui/` first.
