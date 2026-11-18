@@ -23,5 +23,16 @@ describe("Button", () => {
     expect(link.className).toContain("text-brand-white");
   });
 
-  it.todo("uses the secondary style when asked");
+  it("uses the secondary style when asked", () => {
+    render(
+      <Button href="/schedule" variant="secondary">
+        Book a class
+      </Button>,
+    );
+    const link = screen.getByRole("link", { name: "Book a class" });
+    expect(link.className).toContain("border-2");
+    expect(link.className).toContain("border-brand-black");
+    expect(link.className).toContain("text-brand-black");
+    expect(link.className).toContain("hover:bg-brand-sand");
+  });
 });
