@@ -35,4 +35,17 @@ describe("Button", () => {
     expect(link.className).toContain("text-brand-black");
     expect(link.className).toContain("hover:bg-brand-sand");
   });
+
+  it("opens links to other websites (like Fitco) in a new tab", () => {
+    render(<Button href="https://fitco.example.com">Book a class</Button>);
+    const link = screen.getByRole("link", { name: "Book a class" });
+    expect(link.getAttribute("target")).toBe("_blank");
+    expect(link.getAttribute("rel")).toBe("noopener noreferrer");
+  });
+
+  it("opens links inside the site in the same tab", () => {
+    render(<Button href="/en/policies">Studio policies</Button>);
+    const link = screen.getByRole("link", { name: "Studio policies" });
+    expect(link.getAttribute("target")).toBeNull();
+  });
 });
