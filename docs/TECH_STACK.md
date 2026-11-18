@@ -25,12 +25,12 @@ Summary of the team kickoff deck (`Flux Studio Tech Kickoff.pdf`).
 - **In our repo (TypeScript):** schemas (one per content type, e.g. class, coach, FAQ), the Sanity Studio setup (it's a React app), GROQ queries, and the Next.js pages.
 - **In Sanity's cloud:** the content itself (text, photos, class info).
 
-| CMS | Hosted by | Verdict |
-|---|---|---|
-| **Sanity** | Sanity's cloud | **Our pick**: nothing to host, best Next.js support |
-| Payload | Us | All TypeScript, but we run the server and storage |
-| Strapi | Us or paid cloud | A separate server to keep running |
-| Contentful | Contentful | Paid platform, less hands-on to learn |
+| CMS        | Hosted by        | Verdict                                             |
+| ---------- | ---------------- | --------------------------------------------------- |
+| **Sanity** | Sanity's cloud   | **Our pick**: nothing to host, best Next.js support |
+| Payload    | Us               | All TypeScript, but we run the server and storage   |
+| Strapi     | Us or paid cloud | A separate server to keep running                   |
+| Contentful | Contentful       | Paid platform, less hands-on to learn               |
 
 ## Supabase + OpenAI: the AI layer (after the MVP)
 
@@ -42,5 +42,8 @@ Summary of the team kickoff deck (`Flux Studio Tech Kickoff.pdf`).
 
 ## Tooling (not in the deck)
 
-- **GitHub Actions:** CI. Runs lint, type-check, and tests on every PR; Vercel handles builds and previews. Chosen over Vercel CI (beta, needs Turborepo, tied to the Vercel account).
+- **ESLint:** the linter. Finds likely mistakes (unused variables, React hook errors, Next.js pitfalls). Came with `create-next-app`. Run it with `npm run lint`.
+- **Prettier:** the formatter. Rewrites code so everyone's looks the same (spacing, quotes, line breaks). Run it with `npm run format`, or let VS Code format on save.
+- Both are in `package.json`, so `npm install` installs them for everyone. The repo's `.vscode/` folder recommends their VS Code extensions and turns on format on save.
+- **GitHub Actions:** CI. Runs lint, format check, type-check, and tests on every PR; Vercel handles builds and previews. Chosen over Vercel CI (beta, needs Turborepo, tied to the Vercel account).
 - **Linear:** roadmap and issue tracking

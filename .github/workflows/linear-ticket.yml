@@ -1,0 +1,29 @@
+# Fails a PR into dev if its description has no Linear ticket number (FLU-<number>).
+name: Linear ticket
+
+# Also runs when the PR description is edited, so fixing it turns the check green.
+on:
+  pull_request:
+    branches: [dev]
+    types: [opened, edited, synchronize, reopened]
+
+# Reads nothing from the repo: it only looks at the PR description.
+permissions: {}
+
+jobs:
+  ticket:
+    name: Linear ticket
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the PR description for FLU-<number>
+        # The description goes in through an env variable, never pasted into the
+        # script, so text in a PR can't run as code.
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if printf '%s' "$PR_BODY" | grep -Eq 'FLU-[0-9]+'; then
+            echo "Found a Linear ticket."
+          else
+            echo "::error::Add the Linear ticket number to the PR description, e.g. 'Closes FLU-39'."
+            exit 1
+          fi

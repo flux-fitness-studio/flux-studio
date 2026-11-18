@@ -4,15 +4,15 @@ You already know React. Next.js is still React, but it changes **where your code
 
 ## 1. One app, not two
 
-| SkillSync | Flux Studio (Next.js) |
-|---|---|
-| `frontend/` (Vite + React) **and** `backend/` (Express), each with its own `package.json` | **One** project, one `package.json` |
-| `npm run dev` uses `concurrently` to start both | `npm run dev` starts one server → http://localhost:3000 |
-| Frontend calls the backend over HTTP (`matchApi.ts`) | Components can fetch data **directly**, with no API in between |
+| SkillSync                                                                                 | Flux Studio (Next.js)                                          |
+| ----------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| `frontend/` (Vite + React) **and** `backend/` (Express), each with its own `package.json` | **One** project, one `package.json`                            |
+| `npm run dev` uses `concurrently` to start both                                           | `npm run dev` starts one server → http://localhost:3000        |
+| Frontend calls the backend over HTTP (`matchApi.ts`)                                      | Components can fetch data **directly**, with no API in between |
 
 ## 2. Folders are your routes
 
-SkillSync is a single page (`App.tsx`). Flux has many pages, and there's no router to set up: **a folder inside `src/app/` with a `page.tsx` file *is* a page.**
+SkillSync is a single page (`App.tsx`). Flux has many pages, and there's no router to set up: **a folder inside `src/app/` with a `page.tsx` file _is_ a page.**
 
 ```
 src/app/
@@ -33,18 +33,19 @@ src/app/
 
 This is the biggest change.
 
-| Server Component (**default**) | Client Component |
-|---|---|
+| Server Component (**default**)                    | Client Component                                                |
+| ------------------------------------------------- | --------------------------------------------------------------- |
 | Runs on the server; HTML gets sent to the browser | Runs in the browser, like everything in SkillSync's `frontend/` |
-| ✅ Can `await` data (e.g. from Sanity) | ✅ Can use `useState`, `useEffect`, `onClick` |
-| ❌ No state, no click handlers | ❌ Adds JavaScript the browser must download |
-| No special marker | Starts with `'use client'` at the top of the file |
+| ✅ Can `await` data (e.g. from Sanity)            | ✅ Can use `useState`, `useEffect`, `onClick`                   |
+| ❌ No state, no click handlers                    | ❌ Adds JavaScript the browser must download                    |
+| No special marker                                 | Starts with `'use client'` at the top of the file               |
 
 **Rule of thumb:** keep everything a Server Component. Add `'use client'` only to the **small** piece that needs clicks or state (a menu toggle, a form), not the whole page.
 
 ## 4. Data fetching: no `useEffect` + `fetch`
 
 **SkillSync** (`App.tsx`):
+
 ```tsx
 const [jobHistory, setJobHistory] = useState([]);
 useEffect(() => {
@@ -54,6 +55,7 @@ useEffect(() => {
 ```
 
 **Next.js (Server Component):**
+
 ```tsx
 export default async function ClassesPage() {
   const classes = await getClasses(); // talks to Sanity directly
@@ -80,11 +82,11 @@ export async function POST(request: Request) {
 
 ## 6. Environment variables
 
-| SkillSync | Next.js |
-|---|---|
+| SkillSync                                                  | Next.js                                         |
+| ---------------------------------------------------------- | ----------------------------------------------- |
 | `VITE_SUPABASE_URL` in `frontend/`: visible in the browser | `NEXT_PUBLIC_…` prefix = visible in the browser |
-| `OPENAI_API_KEY` in `backend/`: server only | No prefix = **server only** (safe for secrets) |
-| Two `.env` files (one per folder) | One `.env.local` at the root |
+| `OPENAI_API_KEY` in `backend/`: server only                | No prefix = **server only** (safe for secrets)  |
+| Two `.env` files (one per folder)                          | One `.env.local` at the root                    |
 
 ⚠️ Never put a secret in a `NEXT_PUBLIC_` variable. Anyone can read it in the browser.
 
@@ -96,12 +98,12 @@ export async function POST(request: Request) {
 
 ## Quick translation table
 
-| In SkillSync you… | In Flux you… |
-|---|---|
-| Built one page in `App.tsx` | Create a folder + `page.tsx` per page |
-| Wrote `routes/` + `controllers/` in Express | Fetch directly in a Server Component (or `route.ts` if truly needed) |
-| Used `useEffect` to load data | `await` it in an `async` component |
-| Ran `frontend` + `backend` with `concurrently` | Run `npm run dev` |
-| Used `VITE_API_URL` | Use `NEXT_PUBLIC_…` (or no prefix for secrets) |
+| In SkillSync you…                              | In Flux you…                                                         |
+| ---------------------------------------------- | -------------------------------------------------------------------- |
+| Built one page in `App.tsx`                    | Create a folder + `page.tsx` per page                                |
+| Wrote `routes/` + `controllers/` in Express    | Fetch directly in a Server Component (or `route.ts` if truly needed) |
+| Used `useEffect` to load data                  | `await` it in an `async` component                                   |
+| Ran `frontend` + `backend` with `concurrently` | Run `npm run dev`                                                    |
+| Used `VITE_API_URL`                            | Use `NEXT_PUBLIC_…` (or no prefix for secrets)                       |
 
 **Want more?** The official tutorial: https://nextjs.org/learn

@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "title": "Flux Studio | Fitness classes in Puerto Escondido",
+    "description": "Flux Fitness Studio in Puerto Escondido, Mexico. We harness the power of rhythm and energy to create workouts that transform body and mind."
+  },
+  "hero": {
+    "motto": "Échale mami, dale papi",
+    "tagline": "Flux Fitness Studio in Puerto Escondido, Mexico.",
+    "cta": "Book a class"
+  },
+  "video": {
+    "title": "We Are Flux"
+  },
+  "about": {
+    "label": "About us",
+    "title": "Movement is more than exercise.",
+    "visitLabel": "Visit us",
+    "visitTitle": "Find the studio",
+    "address": "Address",
+    "hours": "Hours",
+    "whatsapp": "Chat with us",
+    "directions": "Get directions"
+  },
+  "classes": {
+    "label": "Classes",
+    "title": "Our disciplines",
+    "intro": "We offer classes in Spanish and English."
+  },
+  "coaches": {
+    "label": "Coaches",
+    "title": "Meet the team"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Good to know"
+  },
+  "callToAction": {
+    "title": "Sign up now!",
+    "cta": "Book a class"
+  },
+  "footer": {
+    "contact": "Contact",
+    "hours": "Hours",
+    "book": "Book",
+    "bookClass": "Book a class",
+    "packages": "Packages",
+    "chat": "Chat with us",
+    "policies": "Policies",
+    "terms": "Terms and conditions",
+    "privacy": "Privacy policy",
+    "follow": "Follow us",
+    "instagram": "Flux Studio on Instagram"
+  },
+  "policies": {
+    "title": "Terms and conditions"
+  },
+  "privacy": {
+    "title": "Privacy policy"
+  }
+}
