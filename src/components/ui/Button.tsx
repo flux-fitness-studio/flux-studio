@@ -3,6 +3,7 @@
 // Two styles:
 // - primary: filled (the main action)
 // - secondary: outlined
+// Links to other websites (like Fitco) open in a new tab automatically.
 // Tests to write first: Button.test.tsx
 
 import Link from "next/link";
@@ -23,8 +24,17 @@ export function Button({ href, children, variant = "primary" }: ButtonProps) {
       ? "bg-brand-black text-brand-white focus-visible:outline-brand-black"
       : "border-2 border-brand-black text-brand-black hover:bg-brand-sand";
 
+  // Links to other websites (like Fitco) open in a new tab, so visitors keep
+  // the Flux site open. rel stops the new tab from controlling this one.
+  const isOutsideLink = href.startsWith("http");
+
   return (
-    <Link href={href} className={`${baseClasses} ${variantClasses}`}>
+    <Link
+      href={href}
+      className={`${baseClasses} ${variantClasses}`}
+      target={isOutsideLink ? "_blank" : undefined}
+      rel={isOutsideLink ? "noopener noreferrer" : undefined}
+    >
       {children}
     </Link>
   );

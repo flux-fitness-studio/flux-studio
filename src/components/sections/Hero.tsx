@@ -4,4 +4,7 @@
 //   Spanish on both languages)
 // - A short tagline in the current language
 // - The main button: "Book a class", linking to the Fitco schedule
+//   (the link lives in src/lib/site.ts)
+// Fitco links (booking and payment) open in a new browser tab. Button already
+// does this for any outside link, so there's nothing to add here.
 // Tests to write first: Hero.test.tsx
