@@ -20,7 +20,7 @@ export function Button({ href, children, variant = "primary" }: ButtonProps) {
 
   const variantClasses =
     variant === "primary"
-      ? "bg-brand-black text-brand-white"
+      ? "bg-brand-black text-brand-white focus-visible:outline-brand-black"
       : "border-2 border-brand-black text-brand-black hover:bg-brand-sand";
 
   return (
