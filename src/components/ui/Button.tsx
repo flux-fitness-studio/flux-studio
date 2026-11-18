@@ -3,6 +3,7 @@
 // Two styles:
 // - primary: filled (the main action)
 // - secondary: outlined
+// Links to other websites (like Fitco) open in a new tab automatically.
 // Tests to write first: Button.test.tsx
 
 import Link from "next/link";

@@ -5,8 +5,6 @@
 // - A short tagline in the current language
 // - The main button: "Book a class", linking to the Fitco schedule
 //   (the link lives in src/lib/site.ts)
-// Fitco links (booking and payment) must open in a NEW browser tab, never on
-// this page, so visitors still have the Flux site open when they're done:
-// target="_blank" rel="noopener noreferrer". Button doesn't support this yet:
-// add a prop for it (with a test), don't copy the Button.
+// Fitco links (booking and payment) open in a new browser tab. Button already
+// does this for any outside link, so there's nothing to add here.
 // Tests to write first: Hero.test.tsx
