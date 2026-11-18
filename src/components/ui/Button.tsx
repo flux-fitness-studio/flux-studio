@@ -9,23 +9,23 @@ import Link from "next/link";
 import { ReactNode } from "react";
 
 interface ButtonProps {
-    href: string;
-    children: ReactNode;
-    variant?: "primary" | "secondary";
-    }
+  href: string;
+  children: ReactNode;
+  variant?: "primary" | "secondary";
+}
 
 export function Button({ href, children, variant = "primary" }: ButtonProps) {
-    const baseClasses =
-        "inline-flex items-center justify-center rounded-full min-h-12 px-6 font-body font-bold text-[15px] uppercase tracking-button";
+  const baseClasses =
+    "inline-flex items-center justify-center rounded-full min-h-12 px-6 font-body font-bold text-[15px] uppercase tracking-button";
 
-    const variantClasses =
-        variant === "primary"
-        ? "bg-brand-black text-brand-white"
-        : "border-2 border-brand-black text-brand-black hover:bg-brand-sand";
+  const variantClasses =
+    variant === "primary"
+      ? "bg-brand-black text-brand-white"
+      : "border-2 border-brand-black text-brand-black hover:bg-brand-sand";
 
-    return (
-        <Link href={href} className={`${baseClasses} ${variantClasses}`}>
-        {children}
-        </Link>
-    );
+  return (
+    <Link href={href} className={`${baseClasses} ${variantClasses}`}>
+      {children}
+    </Link>
+  );
 }
