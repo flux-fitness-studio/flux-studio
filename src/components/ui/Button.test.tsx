@@ -16,6 +16,12 @@ describe("Button", () => {
     expect(link.getAttribute("href")).toBe("https://fitco.example.com");
   });
 
-  it.todo("uses the primary style by default");
+  it("uses the primary style by default", () => {
+    render(<Button href="/schedule">Book a class</Button>);
+    const link = screen.getByRole("link", { name: "Book a class" });
+    expect(link.className).toContain("bg-brand-black");
+    expect(link.className).toContain("text-brand-white");
+  });
+
   it.todo("uses the secondary style when asked");
 });
