@@ -43,5 +43,13 @@ describe("Section", () => {
     expect(blackSection?.className).toContain("text-brand-white");
   });
 
-  it.todo("sets the id so in-page links work");
+  it("sets the id so in-page links work", () => {
+    const { container } = render(
+      <Section id="classes">
+        <p>Classes</p>
+      </Section>,
+    );
+    const section = container.querySelector("section");
+    expect(section?.getAttribute("id")).toBe("classes");
+  });
 });
