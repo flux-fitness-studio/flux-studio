@@ -24,6 +24,24 @@ describe("Section", () => {
     expect(section?.className).toContain("bg-brand-white");
   });
 
-  it.todo("uses the sand or black background when asked");
+  it("uses the sand or black background when asked", () => {
+    const { container: sandContainer } = render(
+      <Section background="sand">
+        <p>Sand content</p>
+      </Section>,
+    );
+    const sandSection = sandContainer.querySelector("section");
+    expect(sandSection?.className).toContain("bg-brand-sand");
+
+    const { container: blackContainer } = render(
+      <Section background="black">
+        <p>Black content</p>
+      </Section>,
+    );
+    const blackSection = blackContainer.querySelector("section");
+    expect(blackSection?.className).toContain("bg-brand-black");
+    expect(blackSection?.className).toContain("text-brand-white");
+  });
+
   it.todo("sets the id so in-page links work");
 });
