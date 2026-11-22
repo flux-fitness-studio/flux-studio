@@ -3,3 +3,13 @@
 // - Background: white (the default), sand, or black
 // - An optional id, so in-page links work (e.g. /en#classes)
 // Tests to write first: Section.test.tsx
+
+import { ReactNode } from "react";
+
+type SectionProps = {
+  children: ReactNode;
+};
+
+export function Section({ children }: SectionProps) {
+  return <section>{children}</section>;
+}
