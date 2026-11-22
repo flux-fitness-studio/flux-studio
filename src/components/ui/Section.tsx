@@ -13,13 +13,15 @@ const backgrounds = {
 };
 
 type SectionProps = {
+  id?: string;
   background?: keyof typeof backgrounds;
   children: ReactNode;
 };
 
-export function Section({ background = "white", children }: SectionProps) {
+export function Section({ id, background = "white", children }: SectionProps) {
   return (
     <section
+      id={id}
       className={`${backgrounds[background]} py-section md:py-section-lg px-gutter md:px-gutter-lg`}
     >
       <div className="max-w-content mx-auto">{children}</div>
