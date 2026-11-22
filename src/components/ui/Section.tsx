@@ -6,13 +6,22 @@
 
 import { ReactNode } from "react";
 
+const backgrounds = {
+  white: "bg-brand-white",
+  sand: "bg-brand-sand",
+  black: "bg-brand-black text-brand-white",
+};
+
 type SectionProps = {
+  background?: keyof typeof backgrounds;
   children: ReactNode;
 };
 
-export function Section({ children }: SectionProps) {
+export function Section({ background = "white", children }: SectionProps) {
   return (
-    <section className="bg-brand-white py-section md:py-section-lg px-gutter md:px-gutter-lg">
+    <section
+      className={`${backgrounds[background]} py-section md:py-section-lg px-gutter md:px-gutter-lg`}
+    >
       <div className="max-w-content mx-auto">{children}</div>
     </section>
   );
