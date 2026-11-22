@@ -11,5 +11,9 @@ type SectionProps = {
 };
 
 export function Section({ children }: SectionProps) {
-  return <section>{children}</section>;
+  return (
+    <section className="bg-brand-white py-section md:py-section-lg px-gutter md:px-gutter-lg">
+      <div className="max-w-content mx-auto">{children}</div>
+    </section>
+  );
 }
