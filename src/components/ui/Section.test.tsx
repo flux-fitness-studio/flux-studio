@@ -1,5 +1,6 @@
-// TDD to-do list for Section. Turn each it.todo into a real test, watch it fail,
-// then write the code (see CONTRIBUTING → TDD).
+// Unit tests for the Section component covering children rendering, default white
+// background, sand/black background variants, and optional id forwarding.
+
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Section } from "./Section";
