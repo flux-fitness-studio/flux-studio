@@ -52,4 +52,4 @@ describe("Section", () => {
     const section = container.querySelector("section");
     expect(section?.getAttribute("id")).toBe("classes");
   });
-})
+});
