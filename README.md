@@ -14,7 +14,7 @@ Every tool in the stack was picked to serve that goal.
 ## Getting started (first day)
 
 1. Clone the repo and install everything (this also installs Prettier
-   and ESLint):
+   and ESLint, and sets up the hook that formats every commit):
    ```bash
    git clone https://github.com/flux-fitness-studio/flux-studio.git
    cd flux-studio

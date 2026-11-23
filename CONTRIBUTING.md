@@ -39,10 +39,17 @@ request (GitHub blocks direct pushes).
 
 ### Formatting (Prettier)
 
+- **Every commit is formatted automatically.** A pre-commit hook
+  (Husky + lint-staged) runs Prettier on the files you're committing,
+  so the CI format check passes whatever editor you use.
+- The hook installs itself when you run `npm install`. **After pulling
+  changes to `package.json`, run `npm install` again**, or the hook
+  won't run on your laptop.
 - When VS Code suggests the recommended extensions (Prettier, ESLint,
-  and Tailwind CSS IntelliSense), click **Install**. Files then format automatically on save.
-- Not using VS Code, or a check failed? Run `npm run format`, commit,
-  and push.
+  and Tailwind CSS IntelliSense), click **Install**. Files then also
+  format on save, so you see the formatting while you work.
+- A check still failed? Run `npm run format`, commit, and push. (Skipping
+  the hook with `git commit --no-verify` also skips formatting.)
 
 ## TDD (required)
 
