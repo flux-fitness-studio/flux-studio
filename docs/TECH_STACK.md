@@ -14,6 +14,8 @@ Summary of the team kickoff deck (`Flux Studio Tech Kickoff.pdf`).
 
 - Push to `main` → Vercel builds → the live site updates.
 - Open a PR → Vercel builds that branch → you get a preview link to review.
+- The preview link is in the **vercel** bot's comment on the PR. Previews are public, so teammates and reviewers don't need a Vercel account. See [CONTRIBUTING.md](../CONTRIBUTING.md#preview-links-vercel).
+- Vercel builds with Node 22, the same version as CI, so a PR that passes CI should also build on Vercel.
 - Built by the same company as Next.js, so setup is close to zero.
 - API keys go in Vercel environment variables, never in GitHub.
 
