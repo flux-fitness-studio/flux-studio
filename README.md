@@ -11,6 +11,9 @@ in Spanish and English.
 
 Every tool in the stack was picked to serve that goal.
 
+**Live site:** https://flux-studio-chi-eight.vercel.app (updates once a
+week, when `dev` is merged into `main`)
+
 ## Getting started (first day)
 
 1. Clone the repo and install everything (this also installs Prettier
@@ -29,7 +32,9 @@ Every tool in the stack was picked to serve that goal.
    npm run dev
    ```
 4. Read [CONTRIBUTING.md](CONTRIBUTING.md) before your first branch. It
-   covers our Git workflow, formatting, and TDD.
+   covers our Git workflow, formatting, and TDD. Every pull request also
+   gets a Vercel preview link, so you can see your branch as a real
+   website ([how to find it](CONTRIBUTING.md#preview-links-vercel)).
 
 ## Docs
 

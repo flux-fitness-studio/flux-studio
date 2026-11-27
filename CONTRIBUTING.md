@@ -33,9 +33,31 @@ request (GitHub blocks direct pushes).
    ```
 4. Open a pull request into **`dev`**. It's the default, but check that
    the "base" dropdown says `dev`, not `main`.
-5. Get **1 approving review**, then merge.
-6. Once a week, Kanami merges `dev` into `main`. That's when your work
-   goes live.
+5. **Check your preview.** About a minute after you open the PR, the
+   **vercel** bot comments on it. Click **Preview** to see your branch
+   running as a real website, and check `/en` and `/es`. See
+   [Preview links](#preview-links-vercel) below.
+6. Get **1 approving review**, then merge.
+7. Once a week, Kanami merges `dev` into `main`. That's when your work
+   goes live at https://flux-studio-chi-eight.vercel.app.
+
+### Preview links (Vercel)
+
+Every pull request gets its own copy of the site, built from your
+branch. You don't need to run anything locally to share it.
+
+- **Where:** in your PR, scroll down to the comment from the **vercel**
+  bot and click **Preview** (in the "Actions" column). The checks list
+  also has a **Vercel** row; its **Details** link opens the same build.
+- **What to check:** that your change looks right on `/en` and `/es`,
+  and on a phone-sized window too.
+- **Every push updates it.** Push a new commit and the same comment
+  updates with a new build (about a minute).
+- **Anyone with the link can open it**, with no Vercel account. Paste it
+  in the PR's "How to test" section so your reviewer can use it too.
+- **Red Vercel check?** The site failed to build. Click **Details** to
+  read the build log. Running `npm run build` locally usually shows the
+  same error.
 
 ### Formatting (Prettier)
 
