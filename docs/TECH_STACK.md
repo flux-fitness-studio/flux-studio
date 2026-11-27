@@ -45,5 +45,6 @@ Summary of the team kickoff deck (`Flux Studio Tech Kickoff.pdf`).
 - **ESLint:** the linter. Finds likely mistakes (unused variables, React hook errors, Next.js pitfalls). Came with `create-next-app`. Run it with `npm run lint`.
 - **Prettier:** the formatter. Rewrites code so everyone's looks the same (spacing, quotes, line breaks). Run it with `npm run format`, or let VS Code format on save.
 - Both are in `package.json`, so `npm install` installs them for everyone. The repo's `.vscode/` folder recommends their VS Code extensions and turns on format on save.
+- **Husky + lint-staged:** a pre-commit hook. Husky runs `.husky/pre-commit` before every commit; lint-staged runs Prettier on just the staged files. Every commit is formatted, whatever editor you use. `npm install` sets the hook up (the `prepare` script). CI's format check stays as a backup.
 - **GitHub Actions:** CI. Runs lint, format check, type-check, and tests on every PR; Vercel handles builds and previews. Chosen over Vercel CI (beta, needs Turborepo, tied to the Vercel account).
 - **Linear:** roadmap and issue tracking
